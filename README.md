@@ -1,8 +1,5 @@
 supervisor Cookbook
 ===================
-
-[![Build Status](https://travis-ci.org/poise/supervisor.svg?branch=master)](https://travis-ci.org/poise/supervisor)
-
 Installs (Python) supervisor and provides resources to configure services
 
 
@@ -12,7 +9,7 @@ Requirements
 Supports Debian and RHEL based systems. Tested on Ubuntu 12.04, 10.04, CentOS 6.5.
 
 ### Cookbooks
-- python
+- poise-python
 
 
 Attributes
@@ -27,22 +24,8 @@ Attributes
 - `node['supervisor']['loglevel']` - the minimum severity for those log messages, default `'info'`
 - `node['supervisor']['minfds']` - The minimum number of file descriptors that must be available before supervisord will start successfully.
 - `node['supervisor']['minprocs']` - The minimum number of process descriptors that must be available before supervisord will start successfully.
-- `node['supervisor']['nocleanup']` - If true, retain child log files at startup, the default is false
-- `node['supervisor']['version']` - Sets the version of supervisor to install, must be 3.0+ to use minprocs, minfds and nocleanup.
+- `node['supervisor']['version']` - Sets the version of supervisor to install, must be 3.0+ to use minprocs and minfds.
 - `node['supervisor']['socket_file']` - location of supervisor socket file.
-- `node['supervisor']['ctlplugins']` - entries for `supervisorctl` plugins.
-  For instance, to install [serialrestart](https://pypi.python.org/pypi/supervisor-serialrestart), you'd manually add this to your config:
-
-    ```text
-    [ctlplugin:serialrestart]
-    supervisor.ctl_factory = supervisorserialrestart.controllerplugin:make_serialrestart_controllerplugin
-	```
-  Which can be achieved using
-    ```ruby
-	node.default['supervisor']['ctlplugins'] = ({
-	 'serialrestart'=> 'supervisorserialrestart.controllerplugin:make_serialrestart_controllerplugin'
-     })
-	 ```
 
 
 Resources/Providers
@@ -114,12 +97,15 @@ Includes the python recipe, installs the supervisor PIP package and sets up supe
 
 License & Authors
 -----------------
+- Author:: Nael Alolwani <nael@binary.com>
 - Author:: Noah Kantrowitz <noah@opscode.com>
 - Author:: Gilles Devaux <gilles.devaux@gmail.com>
 - Author:: Sam Clements <sam.clements@datasift.com>
 - Author:: Chris Jerdonek <chris.jerdonek@gmail.com>
 
 ```text
+Copyright:: 2017, Binary.com 
+
 Copyright:: 2011-2012, Opscode, Inc <legal@opscode.com>
 Copyright:: 2011, Formspring.me
 

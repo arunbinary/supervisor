@@ -2,6 +2,10 @@ supervisor Cookbook CHANGELOG
 =============================
 This file is used to list changes made in each version of the supervisor cookbook.
 
+v0.4.13
+-------
+- Compatibility with Chef 13
+
 
 v0.4.10
 -------
