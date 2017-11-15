@@ -29,7 +29,7 @@ end
 
 python_package 'meld3' do
   action :upgrade
-  version '1.0.0'
+  version '1.0.2'
 end
 
 python_package 'supervisor' do
